@@ -1,0 +1,19 @@
+﻿<Window x:Class="TheFinalBudget.Windows.AddToGridWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheFinalBudget.Windows"
+        mc:Ignorable="d"
+        Title="AddToGridWindow" Height="135" Width="340.439">
+    <Grid>
+        <RadioButton Name="groupRadio" Margin="100,5,0,0" GroupName="AddType" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Checked="group_Checked">CategoryGroup</RadioButton>
+        <RadioButton Name="categoryRadio" Margin="215,5,0,0" GroupName="AddType" Height="17" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79" Checked="category_Checked">Category</RadioButton>
+        <TextBlock x:Name="nameTextBlock" HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="Category Name:" VerticalAlignment="Top" TextAlignment="Right" Width="137"/>
+        <TextBox x:Name="categoryNameText" HorizontalAlignment="Left" Height="23" Margin="152,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163"/>
+        <ComboBox x:Name="categoryGroupComboBox" HorizontalAlignment="Left" Margin="152,69,0,0" VerticalAlignment="Top" Width="163"/>
+        <TextBlock x:Name="categoryGroupTextBlock" HorizontalAlignment="Left" Margin="60,69,0,0" TextWrapping="Wrap" Text="Category Group:" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddToGrid" Content="Add" HorizontalAlignment="Left" Margin="58,2,0,0" VerticalAlignment="Top" Width="37" Background="Green" Foreground="White" Click="btnAddToGrid_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,2,0,0" VerticalAlignment="Top" Width="30" Click="btnBack_Click"/>
+    </Grid>
+</Window>

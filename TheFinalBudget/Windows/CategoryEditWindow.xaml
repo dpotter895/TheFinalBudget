@@ -1,0 +1,47 @@
+﻿<Window x:Class="TheFinalBudget.Windows.CategoryEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheFinalBudget.Windows"
+        mc:Ignorable="d"
+        Title="CategoryEditWindow" Height="300" Width="300">
+    <Window.Resources>
+        <Style x:Key="txtStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+
+        <DataTemplate x:Key="CategoryKey">
+            <Grid Height="50" Width="160" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"  Text="{Binding Name}"
+                    Style="{StaticResource txtStyle}"></TextBlock>
+                <TextBlock Grid.Column="1"  Text="{Binding RunningTotal}"
+                    Style="{StaticResource txtStyle}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <TextBox x:Name="CategoryNameTextBox" HorizontalAlignment="Left" Height="23" Margin="81,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="CategoryNameTextBox_LostFocus" KeyDown="CategoryNameTextBox_KeyDown"/>
+        <TextBox x:Name="goalTextBox" HorizontalAlignment="Left" Height="23" Margin="61,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69" LostFocus="goalTextBox_LostFocus" KeyDown="goalTextBox_KeyDown"/>
+        <TextBlock x:Name="goalText" HorizontalAlignment="Left" Margin="31,69,0,0" TextWrapping="Wrap" Text="Goal:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="totalText" HorizontalAlignment="Left" Margin="31,124,0,0" TextWrapping="Wrap" Text="Total:" VerticalAlignment="Top"/>
+        <TextBlock x:Name="moveText" HorizontalAlignment="Left" Margin="31,175,0,0" TextWrapping="Wrap" Text="Move:" VerticalAlignment="Top"/>
+        <TextBox x:Name="moveMoneyTextBox" HorizontalAlignment="Left" Height="23" Margin="67,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85"/>
+        <TextBlock x:Name="toText" HorizontalAlignment="Left" Margin="99,202,0,0" TextWrapping="Wrap" Text="To" VerticalAlignment="Top"/>
+        <TextBlock x:Name="totalAmountText" HorizontalAlignment="Left" Margin="62,124,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <ComboBox Height="38" Margin="31,221,0,0"
+                  Name="categoryAmountsComboBox"
+                  VerticalAlignment="Top" ItemsSource="{Binding}"
+                  ItemTemplate="{StaticResource CategoryKey}"
+                   IsSynchronizedWithCurrentItem="True"
+                   HorizontalAlignment="Left" Width="200">
+        </ComboBox>
+        <Button x:Name="btnTransfer" Content="Transfer" HorizontalAlignment="Left" Margin="179,175,0,0" VerticalAlignment="Top" Width="75" Click="btnTransfer_Click"/>
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Click="btnBack_Click"/>
+    </Grid>
+</Window>
